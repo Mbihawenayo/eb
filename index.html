@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Transaction for the day</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form  method="post">
+        <div class="header">
+            <h1 class="h1">TRANSACTION FROM 24/04/2024-24/07/2024</h1>
+           <marquee  direction="left"><h3 class="h3">Please Save Money Every Day by Filling The Form Below:</h3></marquee>
+
+        </div>
+        <div class="form">
+            <label for="NAME">NAME:</label>
+            <input class="f1" type="text" name="a"><br>
+            <label for="DATE">DATE:</label>
+            <input class="f2" type="DATE" name="b"><br>
+            <label for="AMOUNT SAVED">AMOUNT SAVED:</label>
+            <input class="f3" type="NUMBER" name="c"><br>
+            <input class="button" type="submit" name="submit">
+        </div>
+
+       
+    </form>
+    
+</body>
+</html>
+<?php
+if(isset($_POST['submit'])){
+    $a=$_POST['a'];
+    $b=$_POST['b'];
+    $c=$_POST['c'];
+    $con=mysqli_connect("localhost","root","","emmy");
+    $que=mysqli_query($con,("INSERT INTO saving account VALUES(NULL,'$a','$b','$c')"));
+    if($que==true){
+        echo "Amount of money recorded well";
+
+    }
+    else{
+        echo "money not recorded well";
+    }
+}
+?>
